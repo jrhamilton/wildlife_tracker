@@ -4,18 +4,17 @@
 
 <ul>
   <% @species.each do |animal| %>
-    <li><%= animal.name %></li>
+    <li><a href="/species/<%= animal.id %>"><%= animal.name %></a></li>
   <% end %>
 </ul>
 
-<h3>Enter a new sighting:</h3
+<h3>Enter a new sighting:</h3>
 
-<form action="/sightings" method="post">
-  <label for="contact_name">Name</label>
-  <input id="contact_name" name="name" type="text">
-  <label for="contact_phone">Phone</label>
-  <input id="contact_phone" name="phone" type="text">
-  <label for="contact_email">Email</label>
-  <input id="contact_email" name="email" type="text">
-  <button>Create Contact</button>
+<form action="/regions/select" method="post">
+  <h4>Select a species that has been sighted</h4>
+  <% @species.each do |animal| %>
+    <span><%= animal.name %></span>
+    <input type="radio" name="species_id" value="<%= animal.id %>">
+  <% end %>
+  <button>Go to regions</button>
 </form>

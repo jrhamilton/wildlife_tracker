@@ -4,4 +4,9 @@ class RegionsController < ApplicationController
     #@sightings = Sighting.all
     render('/regions/index.html.erb')
   end
+
+  def region_select
+    @species_id = params[:species_id]
+    @regions = Region.all
+  end
 end
